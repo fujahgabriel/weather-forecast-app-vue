@@ -1,6 +1,6 @@
 # weather-forecast-app-vue
 
-This Weather App is a responsive web application designed to provide users with detailed weather information for a specific location. Users can input a city or location to receive up-to-date weather data, including current conditions, forecasts for the next 7 days, and historical data for the last 5 days.
+This Weather App is a responsive web application designed to provide users with detailed weather information for a specific location. Users can input a city or location to receive up-to-date weather data, including current conditions, forecasts for the next 5 days.
 
 It uses the free version of
 
@@ -26,15 +26,15 @@ It uses the free version of
 * Sunrise and Sunset Times
 
 **7-Day Weather Forecast**
-unfortunately this feature requires a paid plan, i could only get 5 days in the specified location.
+- unfortunately this feature requires a paid plan, i could only get 5 days in the specified location.
 
 **5-Day Historical Weather Data**
-unfortunately this feature requires a paid plan,
+- unfortunately this feature requires a paid plan,
 
 ## Project Setup
 
 ##### Set up environment variables:
-Rename the env.example file to .env file in the root directory and add the openweathermap api key.
+- Rename the env.example file to .env file in the root directory and add the openweathermap api key.
 
 
 ### Install the required dependencies:
