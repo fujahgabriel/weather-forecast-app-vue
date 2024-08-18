@@ -6,6 +6,9 @@ It uses the free version of
 
 [![openweathermap](https://img.shields.io/badge/openweathermap-E97627?style=for-the-badge&logo=openweathermap&logoColor=white)](https://openweathermap.org/api)
 
+## Demo
+
+You can preview [Demo](https://vuewx.netlify.app/)
 
 ## Features
 
@@ -30,6 +33,8 @@ It uses the free version of
 
 **5-Day Historical Weather Data**
 - unfortunately this feature requires a paid plan,
+
+
 
 ## Project Setup
 
