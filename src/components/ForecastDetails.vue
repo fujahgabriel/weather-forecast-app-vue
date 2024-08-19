@@ -3,7 +3,7 @@
     <div
       v-for="detail in details"
       :key="detail.title"
-      class="bg-white shadow-md border rounded-md p-3 h-[180px] flex flex-col justify-between"
+      class=" bg-white shadow-md border rounded-md p-3 h-[180px] flex flex-col justify-between"
     >
       <div class="mt-1">
         <div v-if="detail.icon" class="flex gap-2 items-center">

@@ -19,7 +19,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/shims-vue.d.ts"
-  ],
+, "src/tests/test_CustomeSearch.spec.js"  ],
   "exclude": [
     "node_modules"
   ]
