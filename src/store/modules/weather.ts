@@ -1,5 +1,4 @@
 import axios from 'axios'
-const WEATHER_ENDPOINT_URL = 'https://api.openweathermap.org/data/'
 const initialState = () => {
   return {
     weather: {
@@ -42,43 +41,38 @@ const actions = {
   async FETCH_WEATHER_FORECAST({ commit, state }: any, location: string) {
     try {
       const weatherRes = await axios.get(
-        `${WEATHER_ENDPOINT_URL}2.5/weather?q=${location}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
+        `${process.env.WEATHER_ENDPOINT_URL}/data/2.5/weather?q=${location}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
       )
-     commit('SET_CURRENT_WEATHER_FORECAST', weatherRes.data)
+      commit('SET_CURRENT_WEATHER_FORECAST', weatherRes.data)
     } catch (err) {
       console.log(err)
     }
   },
-  async FETCH_WEATHER_LOCATIONS({commit, state}: any, location: string) {
+  async FETCH_WEATHER_LOCATIONS({ commit, state }: any, location: string) {
     try {
-        if(location.length > 0) {
-          setTimeout(async () => {
-            const response = await axios.get(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=${10}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
-              )
-              commit('SET_WEATHER_LOCATIONS', response.data)
+      if (location.length > 0) {
+        setTimeout(async () => {
+          const response = await axios.get(
+            `${process.env.WEATHER_ENDPOINT_URL}/geo/1.0/direct?q=${location}&limit=${10}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
+          )
+          commit('SET_WEATHER_LOCATIONS', response.data)
 
-          }, 1000)
-        }
-        else {
-            commit('SET_WEATHER_LOCATIONS', [])
-        }
+        }, 1000)
+      }
+      else {
+        commit('SET_WEATHER_LOCATIONS', [])
+      }
 
 
     } catch (err) {
       console.log(err, 'err')
-  }
-},
+    }
+  },
   async GET_WEATHER_FORECAST_THROUGH_COORDINATES({ commit }: any, coordinates: any) {
     try {
       const response = await axios.get(
-        `${WEATHER_ENDPOINT_URL}2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
+        `${process.env.WEATHER_ENDPOINT_URL}/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
       )
-      if(response.data) {
-        const res = await axios.get(
-            `${WEATHER_ENDPOINT_URL}2.5/forecast?q=${response?.data.name}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
-    )
-      }
       commit('SET_CURRENT_WEATHER_FORECAST', response.data)
     } catch (err) {
       console.log(err)
@@ -87,7 +81,7 @@ const actions = {
   async GET_NEXT_DAYS_FORECAST({ commit }: any, coordinates: any) {
     try {
       const result = await axios.get(
-        `${WEATHER_ENDPOINT_URL}2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
+        `${process.env.WEATHER_ENDPOINT_URL}/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${process.env.WEATHER_FORECAST_API_KEY}`
       )
       commit('SET_WEATHER_HISTORY_FORECAST', result.data)
     } catch (err) {
